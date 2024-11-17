@@ -9,9 +9,6 @@ function fetchAndSaveProductDataWithCurl() {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Accept: application/json',
-        ]);
 
         $response = curl_exec($ch);
 
