@@ -2,7 +2,7 @@
 function normalizePhoneNumbers($inputText) {
     $resultList = [];
 
-    // Match potential phone number formats
+    // phone number formats
     $regex = '/(\+1[\s-]?)?(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/';
 
     // Extract matches
@@ -15,9 +15,8 @@ function normalizePhoneNumbers($inputText) {
         // Extract only digits
         $digitsOnly = preg_replace('/\D/', '', $cleanedNumber);
 
-        // Validate that the number contains exactly 10 digits
         if (strlen($digitsOnly) === 10) {
-            // Reformat into the desired structure
+            // structure
             $formattedNumber = '(' . substr($digitsOnly, 0, 3) . ') ' 
                                . substr($digitsOnly, 3, 3) . '-' 
                                . substr($digitsOnly, 6);
@@ -29,7 +28,7 @@ function normalizePhoneNumbers($inputText) {
     return $resultList;
 }
 
-// Example usage
+// Example
 $exampleInput = "numbers: +1 (123) 456-7890, 123-456-7890, 123.456.7890, 123 456 7890, and invalid numbers: 12345.";
 $phoneNumbers = normalizePhoneNumbers($exampleInput);
 
